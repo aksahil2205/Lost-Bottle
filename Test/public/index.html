@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message Storage</title>
+</head>
+<body>
+    <h1>Message Storage</h1>
+    <form action="/save-message" method="POST">
+        <label for="message">Enter your message:</label><br>
+        <textarea id="message" name="message" rows="4" cols="50"></textarea><br><br>
+        <button type="submit">Save Message</button>
+    </form>
+    
+    <!-- Button to display random message -->
+    <button onclick="displayRandomMessage()">Display Random Message</button>
+    <div id="randomMessage"></div>
+
+    <script>
+        function displayRandomMessage() {
+            fetch('/random-message')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('randomMessage').textContent = data;
+                })
+                .catch(error => {
+                    console.error('Error fetching random message:', error);
+                });
+        }
+    </script>
+</body>
+</html>
