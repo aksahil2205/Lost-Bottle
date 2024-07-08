@@ -1,0 +1,396 @@
+body {
+    height: 100vh;
+    margin: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+    overflow-y: auto; /* Enable vertical scrollbar */
+    background: linear-gradient(to right, #f79809, rgb(244, 79, 8),rgb(127, 0, 254)); /* Gradient for top part */
+}
+
+
+.sun-container {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    left : 10%;
+}
+
+.sun{
+    content : '';
+    position : absolute;
+    background: linear-gradient(to top, rgb(235, 109, 20),rgb(238, 152, 22));
+    top : -55%;
+    left : 340%;
+    animation: floatAndTiltAnimation 2s ease-in-out infinite;
+    border-radius : 50%/50%;
+    width : 220px;
+    height : 220px;
+    z-index : -2;
+}
+
+
+.ray-container {
+    position: absolute;
+    width: 60px;
+    height: 30px;
+    top: 0%;
+    left: 435%;
+    transform-origin: bottom center;
+    z-index: -3;
+}
+
+
+.ray {
+    position: absolute;
+    width: 920px;
+    height: 18px;
+    background: radial-gradient(circle, rgb(252, 252, 191), rgb(249, 239, 220));
+    /*clip-path: polygon(10% 0%, 100% 45%, 70% 90%, 0% 100%);
+    /*clip-path: polygon(30% 0%, 900% 0%, 0% 50%,70% 90%);*/
+    transform-origin: bottom center;
+    opacity : 0.9;
+    animation-name: grow-shrink;
+    animation-duration: 5s;
+    animation-iteration-count: infinite; 
+    
+}
+
+
+.ray1 {
+    transform: rotate(350deg) translate(    0%, 120%);
+}
+
+.ray2 {
+    transform: rotate(330deg) translate(20%, 20%);
+}
+
+.ray3 {
+    transform: rotate(300deg) translate(0%, 0%);
+}
+
+.ray4 {
+    transform: rotate(270deg) translate(0%, 0%);
+}
+
+.ray5 {
+    transform: rotate(240deg) translate(0%, 0%);
+}
+
+.ray6 {
+    transform: rotate(210deg) translate(0%, 0%);
+}
+
+.ray7 {
+    transform: rotate(190deg) translate(0%, 0%);
+}
+
+
+@keyframes grow-shrink {
+    0%, 100% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 0;
+    }
+}
+
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 50%; /* Adjust to move the ellipse down from the top */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150vw; /* Ensure the ellipse covers the entire width */
+    height: 200vh;
+    background: linear-gradient(to bottom, rgb(53, 156, 200), rgb(40, 40, 126),rgb(1, 1, 44));
+    border-radius: 25%;
+    z-index: -1; /* Ensure the ellipse is behind all content */
+}
+.ellipse {
+    position: absolute;
+    width: 700px;
+    height: 230px;
+    border-radius: 50% / 100%;
+}
+
+
+ h1 {
+    position: relative;
+    color: white;
+    letter-spacing: 16xpx;
+    font-family: Verdana, sans-serif;
+    font-size: 9em; /* Very big font size */
+    text-align: left; /* Center the text */
+    margin: 0; /* Remove default margin */
+    z-index: 2; /* Ensure the text is above other elements */
+    animation: fadeInAnimation ease 3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    transition: transform 0.3s ease-in-out;
+}
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 50%; /* Adjust to move the ellipse down from the top */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150vw; /* Ensure the ellipse covers the entire width */
+    height: 130vh;
+    background: linear-gradient(to bottom, rgb(53, 156, 200), rgb(40, 40, 126),rgb(1, 1, 44));
+    border-radius: 25%;
+    z-index: -1; /* Ensure the ellipse is behind all content */
+}
+.ellipse {
+    position: absolute;
+    width: 700px;
+    height: 230px;
+    border-radius: 50% / 100%;
+}
+
+
+ h1 {
+    position: relative;
+    color: white;
+    letter-spacing: 16xpx;
+    font-family: Verdana, sans-serif;
+    font-size: 9em; /* Very big font size */
+    text-align: left; /* Center the text */
+    margin: 0; /* Remove default margin */
+    z-index: 2; /* Ensure the text is above other elements */
+    animation: fadeInAnimation ease 3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    transition: transform 0.3s ease-in-out;
+}
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+h1:hover {
+    transform: scale(1.05)  /* Grow in size when hovered */
+}
+
+.title-container {
+    position: relative;
+    top:0%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    background-color: rgba(20, 43, 43, 0.514); 
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: linear-gradient(to right, #92631c, rgb(138, 51, 14),rgb(61, 3, 119)); /* Semi-transparent black background */
+    padding: 20px; /* Padding for the navigation */
+    z-index: 3; /* Ensure the navigation bar is above other elements */
+}
+nav a {
+    color: #fff;
+    padding: 1rem;
+    text-decoration: none;
+    transition: box-shadow 0.3s ease-in-out;
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+nav a:hover {
+    color: rgb(251, 227, 183);   /* Change color on hover */
+    animation: floatAndTiltAnimation 2s ease-in-out infinite;
+    box-shadow: 0 0 20px rgba(255, 165, 0, 0.8); /* Orange glow effect on hover */
+    transform: translateY(-5px) rotate(-2deg) scale(1.1); /* Lift up, tilt, and enlarge on hover */
+}
+
+@keyframes floatAndTiltAnimation {
+    0%, 100% {
+        transform: translateY(0) rotate(0); /* Start and end at normal position and rotation */
+    }
+    50% {
+        transform: translateY(-5px) rotate(2deg); /* Float up and tilt halfway through */
+    }
+}
+
+@keyframes underwaterAnimation {
+    0%, 100% {
+        transform: translateY(0) rotate(0); /* Start and end at normal position and rotation */
+    }
+    50%{
+        transform: translateY(-50%) rotate(-10deg); /* Float up and tilt halfway through */
+    }
+
+}
+
+.box{
+    position:absolute;
+    top: 100%;
+    background-color: #7a5c1d78;
+    
+}
+
+textarea {
+    width: 100%;
+    height: 200px; /* Increase height */
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    resize: vertical; /* Allows vertical resizing */
+    margin-top: 10px;
+    background-color: #c4a706c6;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: #f7df07;
+    box-shadow: 0 0 5px rgba(235, 208, 4, 0.5);
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #fdd804;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #634b00;
+}
+
+
+
+footer {
+    text-align: center;
+    position: fixed;
+    bottom : 0;
+    width: 100%;
+    padding: 1rem 0;
+    background-color: #333;
+    color: #fff;
+}
+
+
+.intro-container {
+    display: flex;
+    position: relative;
+    top: 30%;
+    left: 20%;
+    justify-content: center;
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+    width: 40%;
+    height: 50%;
+    background-color: rgba(27, 32, 37, 0.349);
+    color: aliceblue;
+    padding: 20px;
+    transition: transform 0.6s ease-in-out;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.intro-container:hover{
+    transform: scale(1.2) ; /* Grow in size when hovered */
+    /*animation: nigga 2s ease-in-out infinite;*/
+}
+
+
+@keyframes nigga {
+    0%, 100% {
+        transform: translateY(0) rotate(0); /* Start and end at normal position and rotation */
+    }
+    50% {
+        transform: translateY(-20px) rotate(1deg); /* Float up and tilt halfway through */
+    }
+}
+
+
+
+
+.about {
+    display: flex;
+    position: absolute;
+    top: 103%;
+    left: 5%;
+    font-family: Tahoma, sans-serif;
+    color: white;
+    justify-content: center;
+    width: 40%;
+    height: 10%;
+    font-size: 5em;
+    padding: 20px;
+    transition: transform 0.3s ease-in-out;
+    border-radius: 10px;
+    z-index: 4;
+}
+
+.about:hover{
+    /*transform: scale(1.1) ; /* Grow in size when hovered */
+    animation: nigga 2s ease-in-out infinite;
+}
+
+
+
+form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+}
+
+
+#randomMessage {
+    position: absolute;
+    top: 100%;
+    margin: 20px auto;
+    padding: 20px;
+    width: 80%;
+    height: 300px; /* Adjust height as needed */
+    border: 1px solid #ff5500;
+    border-radius: 5px;
+    background-color: #eca241;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 1.2em;
+    overflow: auto; /* Allows for scrolling if content is larger than the box */
+}
