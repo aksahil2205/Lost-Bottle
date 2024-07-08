@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Read a Message - Lost Bottle</title>
+    <link rel="stylesheet" href="styles3.css">
+</head>
+<body>
+    <div class="sun-container">
+        <div class="sun"></div>
+        <div class="ray-container ray1"><div class="ray"></div></div>
+        <div class="ray-container ray2"><div class="ray"></div></div>
+        <div class="ray-container ray3"><div class="ray"></div></div>
+        <div class="ray-container ray4"><div class="ray"></div></div>
+        <div class="ray-container ray5"><div class="ray"></div></div>
+        <div class="ray-container ray6"><div class="ray"></div></div>
+        <div class="ray-container ray7"><div class="ray"></div></div>
+    </div>
+    <div class="title-container">
+        <h1 alignment = "left">READ A<br>MESSAGE</h1>
+    </div>
+    <nav>
+        <a href="/">HOME</a>
+        <a href="/write">WRITE A MESSAGE</a>
+        <a href="/read">READ A MESSAGE</a>
+    </nav>
+    <br><br><br>
+    <button onclick="displayRandomMessage()">Display Random Message</button>
+    <div id="randomMessage"></div>
+
+    <script>
+        function displayRandomMessage() {
+            fetch('/random-message')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('randomMessage').textContent = data;
+                })
+                .catch(error => {
+                    console.error('Error fetching random message:', error);
+                });
+        }
+    </script>
+
+    <footer>
+        <p>&copy; 2024 Lost Bottle. All rights reserved.<br> By Aniket Kumar Sahil &nbsp; <a href="https://github.com/aksahil2205/" color="white"> GitHub </a></p>
+    </footer>
+</body>
+</html>
